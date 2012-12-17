@@ -4,8 +4,8 @@ define(['jquery','jqueryui/datepicker'], function (jQuery) {
 jQuery(function($){
 	$.datepicker.regional['kk'] = {
 		closeText: 'Жабу',
-		prevText: '&#x3c;Алдыңғы',
-		nextText: 'Келесі&#x3e;',
+		prevText: '&#x3C;Алдыңғы',
+		nextText: 'Келесі&#x3E;',
 		currentText: 'Бүгін',
 		monthNames: ['Қаңтар','Ақпан','Наурыз','Сәуір','Мамыр','Маусым',
 		'Шілде','Тамыз','Қыркүйек','Қазан','Қараша','Желтоқсан'],

@@ -4,8 +4,8 @@ define(['jquery','jqueryui/datepicker'], function (jQuery) {
 jQuery(function($){
 	$.datepicker.regional['de'] = {
 		closeText: 'schließen',
-		prevText: '&#x3c;zurück',
-		nextText: 'Vor&#x3e;',
+		prevText: '&#x3C;zurück',
+		nextText: 'Vor&#x3E;',
 		currentText: 'heute',
 		monthNames: ['Januar','Februar','März','April','Mai','Juni',
 		'Juli','August','September','Oktober','November','Dezember'],

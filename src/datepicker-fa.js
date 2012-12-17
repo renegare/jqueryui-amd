@@ -38,7 +38,7 @@ jQuery(function($) {
 			'س',
 			'چ',
 			'پ',
-			'ج', 
+			'ج',
 			'ش'
 		],
 		dayNamesMin: [
@@ -47,7 +47,7 @@ jQuery(function($) {
 			'س',
 			'چ',
 			'پ',
-			'ج', 
+			'ج',
 			'ش'
 		],
 		weekHeader: 'هف',
@@ -58,4 +58,5 @@ jQuery(function($) {
 		yearSuffix: ''};
 	$.datepicker.setDefaults($.datepicker.regional['fa']);
 });
+
 });

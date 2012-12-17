@@ -4,7 +4,7 @@ define(['jquery','jqueryui/datepicker'], function (jQuery) {
 jQuery(function($){
 	$.datepicker.regional['ml'] = {
 		closeText: 'ശരി',
-		prevText: 'മുന്നത്തെ',  
+		prevText: 'മുന്നത്തെ',
 		nextText: 'അടുത്തത് ',
 		currentText: 'ഇന്ന്',
 		monthNames: ['ജനുവരി','ഫെബ്രുവരി','മാര്‍ച്ച്','ഏപ്രില്‍','മേയ്','ജൂണ്‍',

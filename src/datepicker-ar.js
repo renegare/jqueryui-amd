@@ -5,8 +5,8 @@ define(['jquery','jqueryui/datepicker'], function (jQuery) {
 jQuery(function($){
 	$.datepicker.regional['ar'] = {
 		closeText: 'إغلاق',
-		prevText: '&#x3c;السابق',
-		nextText: 'التالي&#x3e;',
+		prevText: '&#x3C;السابق',
+		nextText: 'التالي&#x3E;',
 		currentText: 'اليوم',
 		monthNames: ['كانون الثاني', 'شباط', 'آذار', 'نيسان', 'مايو', 'حزيران',
 		'تموز', 'آب', 'أيلول',	'تشرين الأول', 'تشرين الثاني', 'كانون الأول'],
@@ -22,4 +22,5 @@ jQuery(function($){
 		yearSuffix: ''};
 	$.datepicker.setDefaults($.datepicker.regional['ar']);
 });
+
 });

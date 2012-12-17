@@ -4,8 +4,8 @@ define(['jquery','jqueryui/datepicker'], function (jQuery) {
 jQuery(function($){
 	$.datepicker.regional['ja'] = {
 		closeText: '閉じる',
-		prevText: '&#x3c;前',
-		nextText: '次&#x3e;',
+		prevText: '&#x3C;前',
+		nextText: '次&#x3E;',
 		currentText: '今日',
 		monthNames: ['1月','2月','3月','4月','5月','6月',
 		'7月','8月','9月','10月','11月','12月'],
@@ -22,4 +22,5 @@ jQuery(function($){
 		yearSuffix: '年'};
 	$.datepicker.setDefaults($.datepicker.regional['ja']);
 });
+
 });

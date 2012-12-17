@@ -7,8 +7,8 @@ define(['jquery','jqueryui/datepicker'], function (jQuery) {
 jQuery(function($){
 	$.datepicker.regional['ro'] = {
 		closeText: 'Închide',
-		prevText: '&laquo; Luna precedentă',
-		nextText: 'Luna următoare &raquo;',
+		prevText: '&#xAB; Luna precedentă',
+		nextText: 'Luna următoare &#xBB;',
 		currentText: 'Azi',
 		monthNames: ['Ianuarie','Februarie','Martie','Aprilie','Mai','Iunie',
 		'Iulie','August','Septembrie','Octombrie','Noiembrie','Decembrie'],

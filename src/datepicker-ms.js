@@ -4,8 +4,8 @@ define(['jquery','jqueryui/datepicker'], function (jQuery) {
 jQuery(function($){
 	$.datepicker.regional['ms'] = {
 		closeText: 'Tutup',
-		prevText: '&#x3c;Sebelum',
-		nextText: 'Selepas&#x3e;',
+		prevText: '&#x3C;Sebelum',
+		nextText: 'Selepas&#x3E;',
 		currentText: 'hari ini',
 		monthNames: ['Januari','Februari','Mac','April','Mei','Jun',
 		'Julai','Ogos','September','Oktober','November','Disember'],
@@ -22,4 +22,5 @@ jQuery(function($){
 		yearSuffix: ''};
 	$.datepicker.setDefaults($.datepicker.regional['ms']);
 });
+
 });

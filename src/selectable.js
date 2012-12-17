@@ -1,12 +1,13 @@
 define(['jquery','./core','./mouse','./widget'], function (jQuery) {
 /*!
  * jQuery UI Selectable @VERSION
+ * http://jqueryui.com
  *
- * Copyright 2012, AUTHORS.txt (http://jqueryui.com/about)
- * Dual licensed under the MIT or GPL Version 2 licenses.
+ * Copyright 2012 jQuery Foundation and other contributors
+ * Released under the MIT license.
  * http://jquery.org/license
  *
- * http://docs.jquery.com/UI/Selectables
+ * http://api.jqueryui.com/selectable/
  *
  * Depends:
  *	jquery.ui.core.js
@@ -16,6 +17,7 @@ define(['jquery','./core','./mouse','./widget'], function (jQuery) {
 (function( $, undefined ) {
 
 $.widget("ui.selectable", $.ui.mouse, {
+	version: "@VERSION",
 	options: {
 		appendTo: 'body',
 		autoRefresh: true,
@@ -24,7 +26,7 @@ $.widget("ui.selectable", $.ui.mouse, {
 		tolerance: 'touch'
 	},
 	_create: function() {
-		var self = this;
+		var that = this;
 
 		this.element.addClass("ui-selectable");
 
@@ -33,7 +35,7 @@ $.widget("ui.selectable", $.ui.mouse, {
 		// cache selectee children based on filter
 		var selectees;
 		this.refresh = function() {
-			selectees = $(self.options.filter, self.element[0]);
+			selectees = $(that.options.filter, that.element[0]);
 			selectees.addClass("ui-selectee");
 			selectees.each(function() {
 				var $this = $(this);
@@ -61,21 +63,17 @@ $.widget("ui.selectable", $.ui.mouse, {
 		this.helper = $("<div class='ui-selectable-helper'></div>");
 	},
 
-	destroy: function() {
+	_destroy: function() {
 		this.selectees
 			.removeClass("ui-selectee")
 			.removeData("selectable-item");
 		this.element
-			.removeClass("ui-selectable ui-selectable-disabled")
-			.removeData("selectable")
-			.unbind(".selectable");
+			.removeClass("ui-selectable ui-selectable-disabled");
 		this._mouseDestroy();
-
-		return this;
 	},
 
 	_mouseStart: function(event) {
-		var self = this;
+		var that = this;
 
 		this.opos = [event.pageX, event.pageY];
 
@@ -110,7 +108,7 @@ $.widget("ui.selectable", $.ui.mouse, {
 				selectee.$element.addClass('ui-unselecting');
 				selectee.unselecting = true;
 				// selectable UNSELECTING callback
-				self._trigger("unselecting", event, {
+				that._trigger("unselecting", event, {
 					unselecting: selectee.element
 				});
 			}
@@ -128,11 +126,11 @@ $.widget("ui.selectable", $.ui.mouse, {
 				selectee.selected = doSelect;
 				// selectable (UN)SELECTING callback
 				if (doSelect) {
-					self._trigger("selecting", event, {
+					that._trigger("selecting", event, {
 						selecting: selectee.element
 					});
 				} else {
-					self._trigger("unselecting", event, {
+					that._trigger("unselecting", event, {
 						unselecting: selectee.element
 					});
 				}
@@ -143,7 +141,7 @@ $.widget("ui.selectable", $.ui.mouse, {
 	},
 
 	_mouseDrag: function(event) {
-		var self = this;
+		var that = this;
 		this.dragged = true;
 
 		if (this.options.disabled)
@@ -159,7 +157,7 @@ $.widget("ui.selectable", $.ui.mouse, {
 		this.selectees.each(function() {
 			var selectee = $.data(this, "selectable-item");
 			//prevent helper from being selected if appendTo: selectable
-			if (!selectee || selectee.element == self.element[0])
+			if (!selectee || selectee.element == that.element[0])
 				return;
 			var hit = false;
 			if (options.tolerance == 'touch') {
@@ -182,7 +180,7 @@ $.widget("ui.selectable", $.ui.mouse, {
 					selectee.$element.addClass('ui-selecting');
 					selectee.selecting = true;
 					// selectable SELECTING callback
-					self._trigger("selecting", event, {
+					that._trigger("selecting", event, {
 						selecting: selectee.element
 					});
 				}
@@ -202,7 +200,7 @@ $.widget("ui.selectable", $.ui.mouse, {
 							selectee.unselecting = true;
 						}
 						// selectable UNSELECTING callback
-						self._trigger("unselecting", event, {
+						that._trigger("unselecting", event, {
 							unselecting: selectee.element
 						});
 					}
@@ -215,7 +213,7 @@ $.widget("ui.selectable", $.ui.mouse, {
 						selectee.$element.addClass('ui-unselecting');
 						selectee.unselecting = true;
 						// selectable UNSELECTING callback
-						self._trigger("unselecting", event, {
+						that._trigger("unselecting", event, {
 							unselecting: selectee.element
 						});
 					}
@@ -227,7 +225,7 @@ $.widget("ui.selectable", $.ui.mouse, {
 	},
 
 	_mouseStop: function(event) {
-		var self = this;
+		var that = this;
 
 		this.dragged = false;
 
@@ -238,7 +236,7 @@ $.widget("ui.selectable", $.ui.mouse, {
 			selectee.$element.removeClass('ui-unselecting');
 			selectee.unselecting = false;
 			selectee.startselected = false;
-			self._trigger("unselected", event, {
+			that._trigger("unselected", event, {
 				unselected: selectee.element
 			});
 		});
@@ -248,7 +246,7 @@ $.widget("ui.selectable", $.ui.mouse, {
 			selectee.selecting = false;
 			selectee.selected = true;
 			selectee.startselected = true;
-			self._trigger("selected", event, {
+			that._trigger("selected", event, {
 				selected: selectee.element
 			});
 		});
@@ -259,10 +257,6 @@ $.widget("ui.selectable", $.ui.mouse, {
 		return false;
 	}
 
-});
-
-$.extend($.ui.selectable, {
-	version: "@VERSION"
 });
 
 })(jQuery);

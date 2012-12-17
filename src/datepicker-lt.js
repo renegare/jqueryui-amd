@@ -4,8 +4,8 @@ define(['jquery','jqueryui/datepicker'], function (jQuery) {
 jQuery(function($){
 	$.datepicker.regional['lt'] = {
 		closeText: 'Uždaryti',
-		prevText: '&#x3c;Atgal',
-		nextText: 'Pirmyn&#x3e;',
+		prevText: '&#x3C;Atgal',
+		nextText: 'Pirmyn&#x3E;',
 		currentText: 'Šiandien',
 		monthNames: ['Sausis','Vasaris','Kovas','Balandis','Gegužė','Birželis',
 		'Liepa','Rugpjūtis','Rugsėjis','Spalis','Lapkritis','Gruodis'],
@@ -22,4 +22,5 @@ jQuery(function($){
 		yearSuffix: ''};
 	$.datepicker.setDefaults($.datepicker.regional['lt']);
 });
+
 });
